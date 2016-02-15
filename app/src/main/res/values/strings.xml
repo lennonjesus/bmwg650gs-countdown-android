@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">5º Encontro Nacional bmwg650gs.net</string>
+    <string name="title_activity_fullscreen">5º Encontro Nacional - 2016</string>
+    <string name="dummy_button">Compartilhar</string>
+    <string name="action_settings">Config</string>
+    <string name="timeLeft">Tá chegando...</string>
+    <string name="url">www.bmwg650gs.net</string>
+    <string name="nextEvent">Que venha o 6º Encontro Nacional!</string>
+</resources>
