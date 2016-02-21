@@ -6,4 +6,5 @@
     <string name="timeLeft">Tá chegando...</string>
     <string name="url">www.bmwg650gs.net</string>
     <string name="nextEvent">Que venha o 6º Encontro Nacional!</string>
+    <string name="title_activity_main">MainActivity</string>
 </resources>
