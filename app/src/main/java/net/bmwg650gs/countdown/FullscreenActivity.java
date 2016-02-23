@@ -1,22 +1,16 @@
 package net.bmwg650gs.countdown;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.CountDownTimer;
-import android.provider.MediaStore;
-import android.support.v7.app.ActionBar;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.os.Handler;
-import android.text.format.Time;
-import android.view.MotionEvent;
+import android.os.CountDownTimer;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.InputStream;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 import static java.lang.String.format;
 
@@ -29,27 +23,25 @@ public class FullscreenActivity extends AppCompatActivity {
 
     private final int SEGUNDOS_POR_DIA = 86400;
 
-    private final int MIL = 1000;
+    private static final int SEGUNDOS_POR_HORA = 3600;
+
+    private static final int SEGUNDOS_POR_MINUTO = 60;
+
+    private static final int MIL = 1000;
 
     private int daysLeft = 0;
 
-    private final Handler mHideHandler = new Handler();
+    private int hoursLeft = 0;
 
-    private View mContentView;
+    private int minsLeft = 0;
 
-    private View mControlsView;
-
-
-
+    private int secondsLeft = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_fullscreen);
-
-        mControlsView = findViewById(R.id.fullscreen_content_controls);
-        mContentView = findViewById(R.id.fullscreen_content);
 
         countdown();
     }
@@ -103,7 +95,22 @@ public class FullscreenActivity extends AppCompatActivity {
 
                 daysLeft = getDaysLeft(millisUntilFinished);
 
-                txtDaysLeft.setText(format("Faltam %2d dias para o Encontro Nacional 2016!", daysLeft));
+                 hoursLeft = (int) (((millisUntilFinished / MIL) - (daysLeft * SEGUNDOS_POR_DIA)) / SEGUNDOS_POR_HORA);
+                 minsLeft = (int) (((millisUntilFinished / MIL) - ((daysLeft * SEGUNDOS_POR_DIA) + (hoursLeft * SEGUNDOS_POR_HORA))) / SEGUNDOS_POR_MINUTO);
+                 secondsLeft = (int) ((millisUntilFinished / MIL) % SEGUNDOS_POR_MINUTO);
+
+                StringBuilder textLeft = new StringBuilder();
+
+                textLeft
+                        .append(format("Faltam %2d dias, ", daysLeft))
+                        .append(format("%02d", hoursLeft))
+                        .append(":")
+                        .append(format("%02d", minsLeft))
+                        .append(":")
+                        .append(format("%02d", secondsLeft))
+                        .append(" para o Encontro Nacional 2016!");
+
+                txtDaysLeft.setText(textLeft.toString());
             }
 
             @Override
@@ -114,16 +121,19 @@ public class FullscreenActivity extends AppCompatActivity {
     }
 
     private long getTypeLeftInMillis() {
-        Time dataEvento = new Time();
-        dataEvento.set(21, 3, 2016);
-        dataEvento.normalize(true);
 
-        Time today = new Time();
-        today.setToNow();
-        today.normalize(true);
+        Calendar dataEvento = GregorianCalendar.getInstance();
 
-        long dataEventoMillis = dataEvento.toMillis(true);
-        long todayMillis = today.toMillis(true);
+        dataEvento.set(Calendar.DAY_OF_MONTH, 21);
+        dataEvento.set(Calendar.MONTH, Calendar.APRIL);
+        dataEvento.set(Calendar.YEAR, 2016);
+        dataEvento.set(Calendar.HOUR_OF_DAY, 0);
+        dataEvento.set(Calendar.MINUTE, 0);
+        dataEvento.set(Calendar.SECOND, 0);
+
+
+        long dataEventoMillis = dataEvento.getTimeInMillis();
+        long todayMillis = GregorianCalendar.getInstance().getTimeInMillis();
 
         return dataEventoMillis - todayMillis;
     }
