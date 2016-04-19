@@ -56,8 +56,8 @@ public class FullscreenActivity extends AppCompatActivity {
 
         shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
 
-        shareIntent.putExtra(Intent.EXTRA_TEXT, format("Faltam %2d dias para o 5º Encontro Nacional bmwg650gs.net", daysLeft));
-        startActivity(Intent.createChooser(shareIntent, "Compartilhe a contagem..."));
+        shareIntent.putExtra(Intent.EXTRA_TEXT, format("Já estou a caminho do 5º Encontro Nacional bmwg650gs.net", daysLeft));
+        startActivity(Intent.createChooser(shareIntent, "Estou chegando..."));
 
     }
 
@@ -102,7 +102,7 @@ public class FullscreenActivity extends AppCompatActivity {
                 StringBuilder textLeft = new StringBuilder();
 
                 textLeft
-                        .append(format("Faltam %2d dias, ", daysLeft))
+                        .append(format("Falta %2d dia, ", daysLeft))
                         .append(format("%02d", hoursLeft))
                         .append(":")
                         .append(format("%02d", minsLeft))
