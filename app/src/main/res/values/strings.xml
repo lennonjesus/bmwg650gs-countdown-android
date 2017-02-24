@@ -1,11 +1,16 @@
 <resources>
-    <string name="app_name">5º Encontro Nacional bmwg650gs.net</string>
-    <string name="title_activity_fullscreen">5º Encontro Nacional - 2016</string>
-    <string name="share_count_button">Cheguei!</string>
+    <string name="app_name">6º Encontro Nacional bmwg650gs.net</string>
+    <string name="title_activity_fullscreen">6º Encontro Nacional - 2017</string>
+    <string name="share_count_button">Compartilhar a contagem</string>
     <string name="action_settings">Config</string>
     <string name="timeLeft">Tá chegando...</string>
     <string name="url">www.bmwg650gs.net</string>
-    <string name="nextEvent">Que venha o 6º Encontro Nacional!</string>
+    <string name="nextEvent">Que venha o 7º Encontro Nacional!</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="share_app_button">Compartilhar aplicativo</string>
+    <string name="anoEncontro">2017</string>
+    <string name="checkin">Já estou a bordo do 6º Encontro Nacional bmwg650gs.net</string>
+    <string name="share_invite">Acompanhe a contagem regressiva para o 6º Encontro Nacional bmwg650gs.net com seu smartphone Android:</string>
+    <string name="checkin_title">Cheguei!!!</string>
+    <string name="address">15 a 18 de junho de 2017 - Ubatuba/SP</string>
 </resources>
