@@ -50,11 +50,11 @@ public class FullscreenActivity extends AppCompatActivity {
 
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.setType("image/jpeg");
+        shareIntent.setType("text/plain");
 
-        Uri uri = Uri.parse("android.resource://net.bmwg650gs/drawable/" + R.drawable.logo_nacional);
+//        Uri uri = Uri.parse("android.resource://net.bmwg650gs/drawable/" + R.drawable.logo_nacional);
 
-        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+//        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
 
 //        shareIntent.putExtra(Intent.EXTRA_TEXT, getResources().getString(R.string.checkin));
 //        startActivity(Intent.createChooser(shareIntent, getResources().getString(R.string.checkin_title));
@@ -68,11 +68,11 @@ public class FullscreenActivity extends AppCompatActivity {
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
         shareIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        shareIntent.setType("image/jpeg");
+        shareIntent.setType("text/plain");
 
-        Uri uri = Uri.parse("android.resource://net.bmwg650gs/drawable/" + R.drawable.logo_nacional);
+//        Uri uri = Uri.parse("android.resource://net.bmwg650gs/drawable/" + R.drawable.logo_nacional);
 
-        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
+//        shareIntent.putExtra(Intent.EXTRA_STREAM, uri);
 
         StringBuilder shareMessage = new StringBuilder();
 
